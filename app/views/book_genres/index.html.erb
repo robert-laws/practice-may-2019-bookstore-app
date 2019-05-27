@@ -1,0 +1,29 @@
+<div class="row mt-4">
+  <div class="col">
+    <h1>All Book Genres</h1>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <ul>
+      <% @book_genres.each do |book_genre| %>
+        <li>
+          <%= link_to book_genre.all_capitalize_genre, book_genre_path(book_genre) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= link_to "+ Add a New Book Genre", new_book_genre_path %>
+  </div>
+</div>

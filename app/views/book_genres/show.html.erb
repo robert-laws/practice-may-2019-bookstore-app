@@ -1,0 +1,57 @@
+<div class="row mt-4">
+  <div class="col">
+    <h1>Book Genre Details</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row pl-3">
+  <div class="col">
+    <p>
+      <%= link_to "<< Return to Book Genres List", book_genres_path %>
+    </p>
+  </div>
+</div>
+
+<div class="row mt-n3">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+    <h4>
+      <%= @book_genre.all_capitalize_genre %>
+    </h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= link_to "Edit Book Genre", edit_book_genre_path(@book_genre) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= link_to "Delete Book Genre", @book_genre, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+</div>

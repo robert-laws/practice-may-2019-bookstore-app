@@ -1,10 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Author, Book, BookType, Address
+
+BookGenre.delete_all
+Author.delete_all
+
+book_genres = [
+  {genre: 'novel'},
+  {genre: 'short story'},
+  {genre: 'play'},
+  {genre: 'poems'},
+  {genre: 'non-fiction'}
+]
 
 authors = [
   {first_name: "Bob", last_name: "Cobb", birth_year: 1974}, 
@@ -18,6 +23,10 @@ authors = [
   {first_name: "Jim", last_name: "Jupe", birth_year: 2000},
   {first_name: "Don", last_name: "Dome", birth_year: 1989}
 ]
+
+book_genres.each do |genre|
+  BookGenre.create(genre)
+end
 
 authors.each do |author|
   Author.create(author)

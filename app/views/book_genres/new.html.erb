@@ -1,0 +1,19 @@
+<div class="row mt-4">
+  <div class="col">
+    <h1>Add New Book Genre</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row pl-3">
+  <div class="col">
+    <%= form_for @book_genre do |f| %>
+      <%= render partial: "form", locals: { f: f, submit_text: "Create a New Book Genre"} %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Author, Book, BookType, Address
 
 BookGenre.delete_all
@@ -11,11 +10,6 @@ book_genres = [
   {genre: 'poems'},
   {genre: 'non-fiction'}
 ]
-=======
-# seeds.rb
-
-Author.delete_all
->>>>>>> 6e7522970466399334671450405fb98853a2026b
 
 authors = [
   {first_name: "Bob", last_name: "Cobb", birth_year: 1974}, 

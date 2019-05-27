@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   # Root Route
   root 'public#index'
 
-  resources :authors, only: [:index, :show]
+  resources :authors, only: [:index, :show, :new, :create]
 end

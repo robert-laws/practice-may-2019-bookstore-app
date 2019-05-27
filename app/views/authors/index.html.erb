@@ -1,5 +1,7 @@
 <h1>All Authors</h1>
 
+<hr>
+
 <ul>
   <% @authors.each do |author| %>
     <li>
@@ -7,3 +9,7 @@
     </li>
   <% end %>
 </ul>
+
+<hr>
+
+<%= link_to "Add a New Author", new_author_path %>

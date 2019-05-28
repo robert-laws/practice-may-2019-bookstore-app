@@ -1,15 +1,35 @@
-<h1>All Authors</h1>
+<div class="row mt-4">
+  <div class="col">
+    <h1>All Authors</h1>
+  </div>
+</div>
 
-<hr>
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
 
-<ul>
-  <% @authors.each do |author| %>
-    <li>
-      <%= link_to author.name, author_path(author) %>
-    </li>
-  <% end %>
-</ul>
+<div class="row mt-2">
+  <div class="col">
+    <ul>
+      <% @authors.each do |author| %>
+        <li>
+          <%= link_to author.name, author_path(author) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<hr>
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
 
-<%= link_to "Add a New Author", new_author_path %>
+<div class="row">
+  <div class="col">
+    <%= link_to "+ Add a New Author", new_author_path %>
+  </div>
+</div>

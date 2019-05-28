@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :authors, only: [:index, :show, :new, :create]
   resources :book_genres, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :books, only: [:index, :show]
 end

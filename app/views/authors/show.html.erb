@@ -1,15 +1,89 @@
-<h1>Author Details</h1>
+<div class="row mt-4">
+  <div class="col">
+    <h1>Author Details</h1>
+  </div>
+</div>
 
-<hr>
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
 
-<%= link_to "Return to Authors List", authors_path %>
+<div class="row">
+  <div class="col">
+    <%= link_to "<< Return to Authors List", authors_path %>
+  </div>
+</div>
 
-<hr>
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong> <%= @author.name %>
-</p>
-<p>
-  <strong>Born:</strong> <%= @author.birth_year %>
-</p>
+<div class="row mt-2">
+  <div class="col">
+    <h5>
+      <%= @author.name %>
+    </h5>
+  </div>
+</div>
 
+<div class="row mt-2">
+  <div class="col">
+    Born: <%= @author.birth_year %>
+  </div>
+</div>
+
+<% if @author.address.present? %>
+  <div class="row mt-5">
+    <div class="col">
+      <h5>Address</h5>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <%= @author.address.street_1 %>
+    </div>
+  </div>
+  <% if @author.address.street_2.present? %>
+    <div class="row">
+      <div class="col">
+        <%= @author.address.street_2 %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col">
+      <%= @author.address.city %>, <%= @author.address.state %> <%= @author.address.zip_code %>
+    </div>
+  </div>
+<% end %>
+
+<% if @author.books.present? %>
+  <div class="row mt-5">
+    <div class="col">
+      <h5>
+        <%= pluralize(@author.books.size, "Title") %>
+      </h5>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="col">
+      <ul>
+        <% @author.books.each do |book| %>
+          <li>
+            <%= link_to book.title, book_path(book) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% else %>
+  <div class="row mt-5">
+    <div class="col">
+      <h5>0 Titles</h5>
+    </div>
+  </div>
+<% end %>

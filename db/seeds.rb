@@ -49,13 +49,11 @@ authors.each do |author|
 end
 
 all_authors = Author.all
-count = 0
 
-addresses.each do |address|
+addresses.each_with_index do |address, index|
   a = Address.new(address)
-  a.author = all_authors[count]
+  a.author = all_authors[index]
   a.save
-  count += 1
 end
 
 books = [

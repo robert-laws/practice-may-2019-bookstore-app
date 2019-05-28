@@ -27,12 +27,35 @@ authors = [
   {first_name: "Don", last_name: "Dome", birth_year: 1989}
 ]
 
+addresses = [
+  {street_1: "550 Water Street", city: "Pittsburgh", state: "PA", zip_code: 15202},
+  {street_1: "400 Mountain View Road", city: "Reno", state: "NV", zip_code: 89510},
+  {street_1: "1102 New Street", street_2: "Apartment 2A", city: "Baltimore", state: "MD", zip_code: 21211},
+  {street_1: "72 Main Street", city: "Wichita", state: "KS", zip_code: 67201},
+  {street_1: "5 Bayside Lane", city: "Atlanta", state: "GA", zip_code: 30301},
+  {street_1: "112 Wayne Road", street_2: "Apartment 14", city: "Nashville", state: "TN", zip_code: 37201},
+  {street_1: "90 Old Fountain Road", city: "Tulsa", state: "OK", zip_code: 74101},
+  {street_1: "73 Tall Tree Lane", city: "Santa Fe", state: "NM", zip_code: 87506},
+  {street_1: "22 Second Street", street_2: "Apartment 2B", city: "Los Angeles", state: "CA", zip_code: 90089},
+  {street_1: "22 Avery Road", city: "Chicago", state: "IL", zip_code: 60641}
+]
+
 book_genres.each do |genre|
   BookGenre.create(genre)
 end
 
 authors.each do |author|
   Author.create(author)
+end
+
+all_authors = Author.all
+count = 0
+
+addresses.each do |address|
+  a = Address.new(address)
+  a.author = all_authors[count]
+  a.save
+  count += 1
 end
 
 books = [

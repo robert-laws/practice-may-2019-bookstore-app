@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_151034) do
+ActiveRecord::Schema.define(version: 2019_05_28_151929) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street_1", limit: 25
+    t.string "street_2", limit: 25
+    t.string "city", limit: 25
+    t.string "state", limit: 2
+    t.integer "zip_code", limit: 5
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_addresses_on_author_id"
+  end
 
   create_table "authors", force: :cascade do |t|
-    t.string "first_name", limit: 40
-    t.string "last_name", limit: 40
+    t.string "first_name", limit: 25
+    t.string "last_name", limit: 25
     t.integer "birth_year", limit: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,13 +38,32 @@ ActiveRecord::Schema.define(version: 2019_05_27_151034) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "book_shops", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_shops_on_book_id"
+    t.index ["shop_id"], name: "index_book_shops_on_shop_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title", limit: 50
-    t.integer "publication_date", limit: 4
+    t.integer "publication_year", limit: 4
     t.text "description"
     t.float "price"
     t.integer "author_id"
-    t.integer "book_type_id"
+    t.integer "book_genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name"
+    t.integer "capacity"
+    t.datetime "open_date"
+    t.string "city"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

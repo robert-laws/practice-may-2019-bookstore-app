@@ -1,4 +1,5 @@
 class Author < ApplicationRecord
+  has_one :address
   has_many :books
   
   validates_presence_of :first_name

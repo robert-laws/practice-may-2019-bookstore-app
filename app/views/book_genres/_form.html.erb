@@ -1,8 +1,10 @@
-<%= error_messages_for(f.object) %>
+    <%= error_messages_for(f.object) %>
 
-<div class="form-group">
-  <%= f.label :genre %>
-  <%= f.text_field :genre, class: "form-control" %>
-</div>
+    <div class="form-group">
+      <%= f.label :genre %>
+      <%= f.text_field :genre, class: "form-control #{@book_genre.errors[:genre].any? ? 'is-invalid' : ''}" %>
+    </div>
 
-<%= f.submit submit_text, class: "btn btn-primary" %>
+    <%= f.submit submit_text, class: "btn btn-primary" %>
+
+    <%= link_to "Cancel", book_genres_path, class: "btn btn-secondary" %>

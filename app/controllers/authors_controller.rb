@@ -15,6 +15,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
+      flash[:notice] = "success|The Author has been successfully saved to the database."
       redirect_to(authors_path)
     else
       render :new
@@ -22,9 +23,26 @@ class AuthorsController < ApplicationController
   end
 
   def edit
+    @author = Author.find(params[:id])
   end
 
-  def delete
+  def update
+    @author = Author.find(params[:id])
+
+    if @author.update_attributes(author_params)
+      flash[:notice] = "success|The Author - #{@author.name} - has been updated successfully."
+      redirect_to author_path(@author)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @author = Author.find(params[:id])
+    @author.delete
+
+    flash[:notice] = "success|The Author - #{@author.name} - has been successfully removed from the database."
+    redirect_to authors_path
   end
 
   private

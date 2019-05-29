@@ -87,3 +87,21 @@
     </div>
   </div>
 <% end %>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= link_to "Edit Author", edit_author_path(@author) %>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <%= link_to "Delete Author", @author, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+</div>

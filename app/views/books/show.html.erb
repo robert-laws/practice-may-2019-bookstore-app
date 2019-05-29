@@ -1,2 +1,65 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="row mt-4">
+  <div class="col">
+    <h1>Book Details</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <h4>
+      <%= @book.title %>
+    </h4>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col">
+    <p>
+      Author: <%= link_to @book.author.name, author_path(@book.author) %>
+    </p>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <p>
+      Description: <%= @book.description %>
+    </p>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <p>
+      Genre: <%= link_to @book.book_genre.genre, book_genre_path(@book.book_genre) %>
+    </p>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <p>
+      Publication Year: <%= @book.publication_year %>
+    </p>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col">
+    <p>
+      Price: <%= @book.price %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>

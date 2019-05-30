@@ -1,2 +1,19 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<div class="row mt-4">
+  <div class="col">
+    <h1>Add a New Book</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= form_for @book do |f| %>
+      <%= render partial: "form", locals: { f: f, submit_text: "Create a New Book" } %>
+    <% end %>
+  </div>
+</div>

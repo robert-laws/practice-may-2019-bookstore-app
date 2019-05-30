@@ -1,0 +1,38 @@
+<%= error_messages_for(f.object) %>
+
+<div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control #{f.object.errors[:title].any? ? 'is-invalid' : ''}" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :description, cols: 40, rows: 4, class: "form-control #{f.object.errors[:description].any? ? 'is-invalid' : ''}" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :publication_year %>
+  <%= f.select :publication_year, (1970..2019), { prompt: "Select a Year" }, class: "form-control #{f.object.errors[:publication_year].any? ? 'is-invalid' : ''}" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :price %>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text">$</div>
+    </div>
+    <%= f.text_field :price, class: "form-control #{f.object.errors[:price].any? ? 'is-invalid' : ''}" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :author_id %>
+  <%= f.select :author_id, @authors.map {|a| [a.name, a.id]}, { prompt: "Select an Author" }, { class: "form-control"} %>
+</div>
+
+<div class="form-group">
+  <%= f.label :book_genre_id %>
+  <%= f.select :book_genre_id, @book_genres.map {|g| [g.genre, g.id]}, { prompt: "Select a Book Genre" }, { class: "form-control"} %>
+</div>
+
+<%= f.submit submit_text, class: "btn btn-primary mt-1"%> <%= link_to "Cancel", books_path, class: "btn btn-secondary mt-1 ml-1" %>

@@ -12,7 +12,7 @@
 
 <div class="form-group">
   <%= f.label :birth_year %>
-  <%= f.select :birth_year, (1950..2005), { prompt: "Select a Date" }, { class: "form-control #{@author.errors[:birth_year].any? ? 'is-invalid' : ''}" } %>
+  <%= f.select :birth_year, (1950..2005), { prompt: "Select a Year" }, { class: "form-control #{@author.errors[:birth_year].any? ? 'is-invalid' : ''}" } %>
 </div>
 
 <%= f.submit submit_text, class: 'btn btn-primary'%> <%= link_to "Cancel", authors_path, class: "btn btn-secondary" %>

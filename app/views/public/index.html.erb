@@ -1,10 +1,15 @@
-<div class="container-fluid">
+<div class="container-fluid mt-5">
   <h1>Public Page</h1>
   <p>Some information located here.</p>
 
   <hr>
 
   <%= link_to "Authors Section", authors_path %>
+
+  <hr>
+
+  <% today_date = DateTime.now %>
+  <h5><%= display_time(today_date) %></h5>
 
   <hr>
 

@@ -10,6 +10,9 @@ class Book < ApplicationRecord
 
   scope :sorted, -> { order(title: :asc) }
   scope :books_by_genre, ->(book_genre_id) { where("book_genre_id = ?", book_genre_id) }
+  scope :over_twenty_eight_dollars, -> { where("price > 28.00") }
+  scope :highest_price, -> { maximum("price") }
+  scope :lowest_price, -> { minimum("price") }
 
   def subject_ids=(ids)
     BookSubject.delete_all_by_book_id(self.id)

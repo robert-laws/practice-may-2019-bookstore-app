@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Public View</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/notice' %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Public View Area</h1>
+        </div>
+      </div>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

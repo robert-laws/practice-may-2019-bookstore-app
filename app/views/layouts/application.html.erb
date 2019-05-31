@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DemoApp</title>
+    <title>Bookstore App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <style>
+    html, body {
+      /* height: 100vh;
+      display: flex;
+      flex-direction: column; */
+    }
+
+    #main-content {
+      /* flex: 1; */
+    }
+
+    #main-navigation {
+      /* flex: 0 0 50px; */
+    }
+    </style>
   </head>
 
   <body>
@@ -14,7 +29,7 @@
 
     <%= render 'layouts/notice' %>
 
-    <div class="container">
+    <div id="main-content" class="container">
       <%= yield %>
     </div>
 

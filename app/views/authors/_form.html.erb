@@ -15,4 +15,36 @@
   <%= f.select :birth_year, (1950..2005), { prompt: "Select a Year" }, { class: "form-control #{@author.errors[:birth_year].any? ? 'is-invalid' : ''}" } %>
 </div>
 
+<div class="row">
+  <div class="col">
+    <h4 class="mt-4">Author Address</h4>
+  </div>
+</div>
+
+<%= f.fields_for :address, @address do |address_fields| %>
+  <%= address_fields.hidden_field :id %>
+  <div class="form-group">
+    <%= address_fields.label :street_1 %>
+    <%= address_fields.text_field :street_1, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= address_fields.label :street_2 %>
+    <%= address_fields.text_field :street_2, class: "form-control" %>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= address_fields.label :city %>
+      <%= address_fields.text_field :city, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= address_fields.label :state %>
+      <%= address_fields.text_field :state, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= address_fields.label :zip_code %>
+      <%= address_fields.text_field :zip_code, class: "form-control" %>
+    </div>
+  </div>
+<% end %>
+
 <%= f.submit submit_text, class: 'btn btn-primary'%> <%= link_to "Cancel", authors_path, class: "btn btn-secondary" %>

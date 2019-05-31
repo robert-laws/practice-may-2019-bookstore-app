@@ -1,6 +1,8 @@
 # Database Tables - Authors, Books, BookGenres, Shops, BookShops, Addresses
 Address.delete_all
 BookShop.delete_all
+BookSubject.delete_all
+Subject.delete_all
 Book.delete_all
 Shop.delete_all
 BookGenre.delete_all
@@ -12,6 +14,14 @@ book_genres = [
   {genre: 'play'},
   {genre: 'poems'},
   {genre: 'non-fiction'}
+]
+
+subjects = [
+  {name: "art"},
+  {name: "history"},
+  {name: "travel"},
+  {name: "cooking"},
+  {name: "fishing"}
 ]
 
 authors = [
@@ -42,6 +52,10 @@ addresses = [
 
 book_genres.each do |genre|
   BookGenre.create(genre)
+end
+
+subjects.each do |subject|
+  Subject.create(subject)
 end
 
 authors.each do |author|

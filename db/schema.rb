@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_151929) do
+ActiveRecord::Schema.define(version: 2019_05_31_064116) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street_1", limit: 25
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2019_05_28_151929) do
     t.index ["shop_id"], name: "index_book_shops_on_shop_id"
   end
 
+  create_table "book_subjects", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_subjects_on_book_id"
+    t.index ["subject_id"], name: "index_book_subjects_on_subject_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title", limit: 50
     t.integer "publication_year", limit: 4
@@ -64,6 +73,12 @@ ActiveRecord::Schema.define(version: 2019_05_28_151929) do
     t.datetime "open_date"
     t.string "city"
     t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

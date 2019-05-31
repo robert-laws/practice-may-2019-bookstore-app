@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @authors = Author.sorted
     @book_genres = BookGenre.sorted
+    @subjects = Subject.sorted
   end
 
   def create
@@ -25,6 +26,21 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
+    @authors = Author.sorted
+    @book_genres = BookGenre.sorted
+    @subjects = Subject.sorted
+  end
+
+  def update
+    @book = Book.find(params[:id])
+
+    if @book.update_attributes(book_params)
+      flash[:notice] = "success|The book has been updated successfully."
+      redirect_to book_path(@book)
+    else
+      render :edit
+    end
   end
 
   def delete
@@ -33,6 +49,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :publication_year, :description, :price, :author_id, :book_genre_id)
+    params.require(:book).permit(:title, :publication_year, :description, :price, :author_id, :book_genre_id, subject_ids: [])
   end
 end

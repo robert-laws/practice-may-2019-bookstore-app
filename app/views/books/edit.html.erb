@@ -1,2 +1,19 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="row mt-4">
+  <div class="col">
+    <h1>Edit Book</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <%= form_for @book do |f| %>
+      <%= render partial: "form", locals: { f: f, submit_text: "Update Book" } %>
+    <% end %>
+  </div>
+</div>

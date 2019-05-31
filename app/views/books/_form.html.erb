@@ -35,4 +35,14 @@
   <%= f.select :book_genre_id, @book_genres.map {|g| [g.genre, g.id]}, { prompt: "Select a Book Genre" }, { class: "form-control"} %>
 </div>
 
+<div class="form-group">
+  <%= f.label "Subjects" %>
+  <%= f.collection_check_boxes :subject_ids, @subjects, :id, :name do |checkbox| %>
+    <div class="form-check">
+      <%= checkbox.check_box(class: "form-check-input") %>
+      <%= checkbox.label(class: "form-check-label") %>
+    </div>
+  <% end %>
+</div>
+
 <%= f.submit submit_text, class: "btn btn-primary mt-1"%> <%= link_to "Cancel", books_path, class: "btn btn-secondary mt-1 ml-1" %>

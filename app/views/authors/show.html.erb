@@ -27,6 +27,9 @@
     <h5>
       <%= @author.name %>
     </h5>
+    <p>
+      <%= link_to "View author books", author_books_path(@author) %>
+    </p>
   </div>
 </div>
 
@@ -93,6 +96,12 @@
     </div>
   </div>
 <% end %>
+
+<div class="row">
+  <div class="col">
+    <%= link_to "Add a New Book for #{@author.name}", new_author_book_path(@author) %>
+  </div>
+</div>
 
 <div class="row">
   <div class="col">

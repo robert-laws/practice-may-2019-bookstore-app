@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.sorted
+    if params[:author_id]
+      @books = Author.find(params[:author_id]).books.sorted
+    else
+      @books = Book.sorted
+    end
   end
 
   def show
@@ -8,7 +12,11 @@ class BooksController < ApplicationController
   end
 
   def new
-    @book = Book.new
+    if params[:author_id]
+      @book = Book.new(author_id: params[:author_id])
+    else
+      @book = Book.new
+    end
     @authors = Author.sorted
     @book_genres = BookGenre.sorted
     @subjects = Subject.sorted

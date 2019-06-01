@@ -4,6 +4,8 @@ class PublicController < ApplicationController
   end
 
   def show
+  end
 
+  def welcome
   end
 end

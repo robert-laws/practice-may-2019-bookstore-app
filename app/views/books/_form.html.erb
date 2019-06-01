@@ -1,5 +1,7 @@
 <%= error_messages_for(f.object) %>
 
+<%= f.hidden_field :author_id %>
+
 <div class="form-group">
   <%= f.label :title %>
   <%= f.text_field :title, class: "form-control #{f.object.errors[:title].any? ? 'is-invalid' : ''}" %>
@@ -25,10 +27,12 @@
   </div>
 </div>
 
-<div class="form-group">
-  <%= f.label :author_id %>
-  <%= f.select :author_id, @authors.map {|a| [a.name, a.id]}, { prompt: "Select an Author" }, { class: "form-control"} %>
-</div>
+<% if !params[:author_id] %>
+  <div class="form-group">
+    <%= f.label :author_id %>
+    <%= f.select :author_id, @authors.map {|a| [a.name, a.id]}, { prompt: "Select an Author" }, { class: "form-control"} %>
+  </div>
+<% end %>
 
 <div class="form-group">
   <%= f.label :book_genre_id %>

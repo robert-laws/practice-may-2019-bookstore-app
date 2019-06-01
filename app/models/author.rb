@@ -1,10 +1,12 @@
 class Author < ApplicationRecord
   # Relations
-  has_one :address
+  has_one :address, inverse_of: :author
   has_many :books
 
+  accepts_nested_attributes_for :address
+
   # Validations
-  validate :not_identical_author
+  validate :not_identical_author, on: :create
   validates :first_name, :last_name, :birth_year,
     presence: true
     
@@ -24,6 +26,16 @@ class Author < ApplicationRecord
   # before_validation
   # before_create
   # etc...
+
+  def address_attributes=(address_attributes)
+    if address_attributes[:id].present?
+      address = Address.find(address_attributes[:id])
+      address.update_attributes(address_attributes)
+    else
+      address = Address.new(address_attributes)
+      address.author = self
+    end
+  end
 
   private
 

@@ -1,4 +1,6 @@
 class BookGenresController < ApplicationController
+  layout "additions"
+
   def index
     @book_genres = BookGenre.sorted
   end

@@ -36,6 +36,12 @@
   </div>
 </div>
 
+<div class="row mt-4 mb-4">
+  <div class="col">
+    <%= render partial: 'author', locals: { book_author: @author } %>
+  </div>
+</div>
+
 <% if @author.address.present? %>
   <div class="row mt-5">
     <div class="col">

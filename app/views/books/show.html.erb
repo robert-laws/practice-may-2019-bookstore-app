@@ -26,6 +26,12 @@
   </div>
 </div>
 
+<div class="row mt-4 mb-4">
+  <div class="col">
+    <%= render partial: 'authors/author', locals: { book_author: @book.author } %>
+  </div>
+</div>
+
 <div class="row mt-2">
   <div class="col">
     <p>

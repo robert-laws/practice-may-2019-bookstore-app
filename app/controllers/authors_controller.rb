@@ -9,6 +9,7 @@ class AuthorsController < ApplicationController
 
   def new
     @author = Author.new
+    @address = @author.build_address
   end
 
   def create
@@ -24,6 +25,7 @@ class AuthorsController < ApplicationController
 
   def edit
     @author = Author.find(params[:id])
+    @address = @author.address || @author.build_address
   end
 
   def update
@@ -53,6 +55,6 @@ class AuthorsController < ApplicationController
   private
 
   def author_params
-    params.require(:author).permit(:first_name, :last_name, :birth_year)
+    params.require(:author).permit(:first_name, :last_name, :birth_year, address_attributes: [:id, :street_1, :street_2, :city, :state, :zip_code])
   end
 end

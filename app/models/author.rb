@@ -12,6 +12,8 @@ class Author < ApplicationRecord
   scope :sorted, -> { order(last_name: :asc, first_name: :asc) }
   scope :match_all, ->(first_name, last_name, birth_year) { where("first_name = ? AND last_name = ? AND birth_year = ?", first_name, last_name, birth_year) }
 
+  scope :authors_by_birth_year, ->(birth_year) { where("birth_year = ?", birth_year) }
+
   # Instance Methods
   def name
     "#{first_name} #{last_name}"

@@ -45,6 +45,11 @@ class AuthorsController < ApplicationController
     redirect_to authors_path
   end
 
+  def year
+    @authors = Author.authors_by_birth_year(params[:year])
+    render "index"
+  end
+
   private
 
   def author_params

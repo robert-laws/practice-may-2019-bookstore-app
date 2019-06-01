@@ -10,26 +10,40 @@
   </div>
 </div>
 
-<div class="row mt-2">
-  <div class="col">
-    <ul>
-      <% @authors.each do |author| %>
-        <li>
-          <%= link_to author.name, author_path(author) %>
-        </li>
-      <% end %>
-    </ul>
+<% if @authors.present? %>
+  <div class="row mt-2">
+    <div class="col">
+      <ul>
+        <% @authors.each do |author| %>
+          <li>
+            <%= link_to author.name, author_path(author) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <hr>
+  <div class="row">
+    <div class="col">
+      <hr>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <%= link_to "+ Add a New Author", new_author_path %>
+  <div class="row">
+    <div class="col">
+      <%= link_to "+ Add a New Author", new_author_path %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="row">
+    <div class="col">
+      <h4>No Authors Found</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+<% end %>
